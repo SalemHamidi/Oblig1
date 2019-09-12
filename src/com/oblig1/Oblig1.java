@@ -81,13 +81,12 @@ public class Oblig1 {
     //Oppgave 5
     public static void rotasjon(char[] a){
         //Antall plasser den skal rotere mot høyre
-        int antallRotasjoner = 1;
         if(a.length == 0) {
             System.out.println("0");
         }
         //Rotere arrayet mot høyre like manger ganger som verdien
         //til antallRotasjoner
-        for(char i = 0; i < antallRotasjoner; i++) {
+        for(char i = 0; i < 1; i++) {
             //Lagrer hvilken verdi siste tallet har
             char siste = a[a.length - 1];
             //Alle elementer flyttes n mot høyre
