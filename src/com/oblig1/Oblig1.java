@@ -4,6 +4,7 @@ Obligatorisk oppgave 1, av Salem Hamidi - s333946
 
 package com.oblig1;
 
+import java.sql.SQLOutput;
 import java.util.Arrays;
 
 public class Oblig1 {
@@ -69,7 +70,37 @@ public class Oblig1 {
         return antall;
     }
 
-    // Oppgave
+    // Oppgave 4
+    public static void delSortering(int[] a, int left, int right) {
+
+
+
+    }
+
+
+    //Oppgave 5
+    public static void rotasjon(char[] a){
+        //Antall plasser den skal rotere mot høyre
+        int antallRotasjoner = 1;
+        if(a.length == 0) {
+            System.out.println("0");
+        }
+        //Rotere arrayet mot høyre like manger ganger som verdien
+        //til antallRotasjoner
+        for(char i = 0; i < antallRotasjoner; i++) {
+            //Lagrer hvilken verdi siste tallet har
+            char siste = a[a.length - 1];
+            //Alle elementer flyttes n mot høyre
+            for(int j = a.length - 1; j > 0; j--) {
+                a[j] = a[j-1];
+            }
+            //Første verdien får verdien til siste
+            a[0] = siste;
+        }
+        //Sjekk ut om dette skal skrive!!
+        //System.out.println("")
+
+    }
 
 
 
