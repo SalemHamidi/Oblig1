@@ -20,9 +20,13 @@ public class Oblig1 {
 
     //Oppgave 2
     public static int antallUlikeSortert(int[] a) {
-
+        if (a[0] < a[1]) {
+          throw new IllegalStateException("Arrayet er ikke sortert i stigende rekkefølge");
+        }
+        return 0;
     }
 }
+
 
 
 
