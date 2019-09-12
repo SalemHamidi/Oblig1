@@ -20,11 +20,28 @@ public class Oblig1 {
 
     //Oppgave 2
     public static int antallUlikeSortert(int[] a) {
+
+        int antall = 1;
+        //Sjekker om koden er sortert i stigende rekkefølge
         if (a[0] < a[1]) {
-          throw new IllegalStateException("Arrayet er ikke sortert i stigende rekkefølge");
+            throw new IllegalStateException("Arrayet er ikke sortert i stigende rekkefølge");
         }
-        return 0;
+        //Sjekker om tabellen er tom;
+        if (a.length == 0){
+            return 0;
+        }
+
+        for(int i = 0; i < a. length -1; i++) {
+            //Siden tabellen er på stigende rekkefølge
+            //trenger vi kun å sjekke om tallet før og etter er
+            //like, dersom de ikke er like skal metoden telle
+            if(a[i] != a[i+1]){
+                antall++;
+            }
+        }
+        return antall;
     }
+
 }
 
 
