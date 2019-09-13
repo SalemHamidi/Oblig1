@@ -130,9 +130,30 @@ public class Oblig1 {
             }
         }
     }
+
+    //Oppgave 7 A
+    public static String flett(String s, String t) {
+        //Lager strenger som blir laget av s og t
+        StringBuilder tekst = new StringBuilder();
+
+        //For-løkken går igjennom alle verdiene i Streng s
+        for(int i = 0; i < s.length(); i++) {
+            if (i < s.length()) {
+                tekst.append(s.charAt(i));
+            }
+        }
+        //For-løkken går igjennom alle verdiene i Streng t
+        for(int i = 0; i < t.length(); i++) {
+            if(i < t.length()){
+                tekst.append(t.charAt(i));
+            }
+        }
+        return tekst.toString();
+    }
     //Oppgave 7
-
-
+    public static String flett(String s) {
+        return "";
+    }
 
 
 
