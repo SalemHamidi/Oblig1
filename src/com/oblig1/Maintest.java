@@ -22,22 +22,25 @@ public class Maintest {
                 a[0] = siste;
             }
         }
-        if(k < 0) {
-            for (char i = 0; i < a.length; i--) {
-                char første = a[0];
 
-                for (int j = a.length - 1; j < 0; j++) {
-                    a[j] = a[j + 1];
+        //Trenger hjelp å løse rotasjon med negative verdier
+        if (k < 0) {
+            char første = a[0];
+            for (int i = 0; i < k; i++) {
+                for (char j = 0; j < k - 1; j++) {
+                    a[i] = a[i + 1];
                 }
-                a[a.length -1]= første;
+                a[i] = første;
             }
+
         }
     }
+
     public static void main(String[] args) {
          char[] a = {'A','B','C','D','E','F','G','H','I','J'};
          System.out.println(Arrays.toString(a));
 
-        rotasjon(a, -2);
+        rotasjon(a, -1);
         System.out.println(Arrays.toString(a));
     }
 }

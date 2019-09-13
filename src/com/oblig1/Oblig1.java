@@ -77,19 +77,17 @@ public class Oblig1 {
 
     }
 
-/*
     //Oppgave 5
     public static void rotasjon(char[] a){
-        //Antall plasser den skal rotere mot høyre
+        //Hvis arrayer er tomt, skriv at det er 0
         if(a.length == 0) {
             System.out.println("0");
         }
-        //Rotere arrayet mot høyre like manger ganger som verdien
-        //til antallRotasjoner
+        //Rotere arrayet mot høyre en enhet
         for(char i = 0; i < 1; i++) {
             //Lagrer hvilken verdi siste tallet har
             char siste = a[a.length - 1];
-            //Alle elementer flyttes n mot høyre
+            //Bytter verdien j-1 enhet
             for(int j = a.length - 1; j > 0; j--) {
                 a[j] = a[j-1];
             }
@@ -101,27 +99,39 @@ public class Oblig1 {
 
     }
 
- */
-    public static void rotasjon(char[] a, int k) {
+    public static void rotasjon1(char[] a, int k) {
         //Antall plasser den skal rotere mot høyre
         if (a.length == 0) {
             System.out.println("0");
         }
         //Rotere arrayet mot høyre like manger ganger som verdien
         //til antallRotasjoner
-        for (char i = 0; i < k; i++) {
-            //Lagrer hvilken verdi siste tallet har
-            char siste = a[a.length - 1];
-            //Alle elementer flyttes n mot høyre
-            for (int j = a.length - 1; j > 0; j--) {
-                a[j] = a[j - 1];
+        if(k > 0) {
+            for (char i = 0; i < k; i++) {
+                //Lagrer hvilken verdi siste tallet har
+                char siste = a[a.length - 1];
+                //Alle elementer flyttes n mot høyre
+                for (int j = a.length - 1; j > 0; j--) {
+                    a[j] = a[j - 1];
+                }
+                //Første verdien får verdien til siste
+                a[0] = siste;
             }
-            //Første verdien får verdien til siste
-            a[0] = siste;
+
         }
-
-
+        //Trenger litt help med rotasjon med nagativ verdi
+        if(k < 0) {
+            for(char i = 0; i < k; i++) {
+                char første = a[0];
+                for(int j = a.length - 1; j < k; j++) {
+                    a[j] = a[0];
+                }
+                a[0] = første;
+            }
+        }
     }
+    //Oppgave 7
+
 
 
 
