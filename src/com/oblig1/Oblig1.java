@@ -99,7 +99,7 @@ public class Oblig1 {
 
     }
 
-    public static void rotasjon1(char[] a, int k) {
+    public static void rotasjon2(char[] a, int k) {
         //Antall plasser den skal rotere mot høyre
         if (a.length == 0) {
             System.out.println("0");
@@ -151,11 +151,18 @@ public class Oblig1 {
         return tekst.toString();
     }
     //Oppgave 7
-    public static String flett(String s) {
-        return "";
+    /*
+    public static String flett2(St  ring s) {
+
+    }
+     */
+    //Oppgave 8
+   /*
+    public static int[] indekssortering(int[] a) {
+
     }
 
-
+*/
 
 
 
