@@ -4,20 +4,24 @@ Obligatorisk oppgave 1, av Salem Hamidi - s333946
 
 package com.oblig1;
 
-import java.sql.SQLOutput;
-import java.util.Arrays;
+import java.util.NoSuchElementException;
 
 public class Oblig1 {
 
     //Oppgave 1
     public static int maks(int[] a) {
         int max_value = 0;
-        for (int i = 1; i < a.length; i++) {
-            if (a[i] > max_value) {
-                max_value = a[i];
+        if (a.length > 0) {
+            for (int i = 1; i < a.length; i++) {
+                if (a[i] > a[i - 1]) {
+                    max_value = a[i];
+                }
             }
+            return max_value;
         }
-        return max_value;
+        else{
+            throw new NoSuchElementException("Arrayet er tomt");
+        }
     }
 
     //Oppgave 2
@@ -157,15 +161,30 @@ public class Oblig1 {
     }
      */
     //Oppgave 8
-   /*
+/*
     public static int[] indekssortering(int[] a) {
 
     }
-
 */
+    //Oppgave 9
+/*
+    public static int[] tredjeMin(int[] a) {
+
+    }
+*/
+/*
+    //Oppgave 10
+    public static boolean inneholdt(String a, String b){
+        if (a == null) {
+            return true;
+        }
+        if(a.contains("[A-Z]") || b.contains("[A-Z]")) {
+            return true;
+        }
 
 
-
+    }
+*/
 }
 
 
