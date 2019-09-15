@@ -8,7 +8,7 @@ import java.util.NoSuchElementException;
 
 public class Oblig1 {
 
-    //Oppgave 1
+    //Oppgave 1 - ikke fullført
     public static int maks(int[] a) {
         int max_value = 0;
         if (a.length > 0) {
@@ -24,18 +24,17 @@ public class Oblig1 {
         }
     }
 
-    //Oppgave 2
+    //Oppgave 2 - Fullført
 
     public static int antallUlikeSortert(int[] a) {
-
         int antall = 1;
-        //Sjekker om koden er sortert i stigende rekkefølge
-        if (a[0] < a[1]) {
-            throw new IllegalStateException("Arrayet er ikke sortert i stigende rekkefølge");
-        }
         //Sjekker om tabellen er tom;
         if (a.length == 0) {
             return 0;
+        }
+        //Sjekker om koden er sortert i stigende rekkefølge
+        if (a[0] > a[1]) {
+            throw new IllegalStateException("Arrayet er ikke sortert i stigende rekkefølge");
         }
 
         for (int i = 0; i < a.length - 1; i++) {
@@ -49,7 +48,7 @@ public class Oblig1 {
         return antall;
     }
 
-    //Oppgave 3
+    //Oppgave 3 -
     public static int antallUlikeSortert1(int[] a) {
         int antall = 1;
 

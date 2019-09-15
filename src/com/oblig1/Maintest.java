@@ -27,24 +27,30 @@ public class Maintest {
 
 
      */
-    public static int maks(int[] a) {
-        int max_value = 0;
-        if (a.length > 0) {
-            for (int i = 1; i < a.length; i++) {
-                if (a[i] > a[i - 1]) {
-                    max_value = a[i];
-                }
-            }
-            return max_value;
+    public static int antallUlikeSortert(int[] a) {
+        int antall = 1;
+        //Sjekker om tabellen er tom;
+        if (a.length == 0) {
+            return 0;
         }
-       else{
-            throw new NoSuchElementException("Arrayet er tomt");
+        //Sjekker om koden er sortert i stigende rekkefølge
+        if (a[0] > a[1]) {
+            throw new IllegalStateException("Arrayet er ikke sortert i stigende rekkefølge");
         }
-    }
 
+        for (int i = 0; i < a.length - 1; i++) {
+            //Siden tabellen er på stigende rekkefølge
+            //trenger vi kun å sjekke om tallet før og etter er
+            //like, dersom de ikke er like skal metoden telle
+            if (a[i] != a[i + 1]) {
+                antall++;
+            }
+        }
+        return antall;
+    }
     public static void main(String[] args) {
-        int[] a = {};
-        System.out.println(maks(a));
+        int[] a = {4, 2, 3,};
+        System.out.println(antallUlikeSortert(a));
 
 
 
