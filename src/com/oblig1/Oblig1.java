@@ -25,7 +25,6 @@ public class Oblig1 {
     }
 
     //Oppgave 2 - Fullført
-
     public static int antallUlikeSortert(int[] a) {
         int antall = 1;
         //Sjekker om tabellen er tom;
@@ -48,8 +47,8 @@ public class Oblig1 {
         return antall;
     }
 
-    //Oppgave 3 -
-    public static int antallUlikeSortert1(int[] a) {
+    //Oppgave 3 - Delvis fullført
+    public static int antallUlikeUsortert(int[] a) {
         int antall = 1;
 
         //Sjekker om arrayet er tomt
