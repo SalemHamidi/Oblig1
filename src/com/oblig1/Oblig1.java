@@ -69,8 +69,7 @@ public class Oblig1 {
 
     // Oppgave 4
     public static void delSortering(int[] a) {
-        int left;
-        int rigth;
+
 
 
 
@@ -86,14 +85,16 @@ public class Oblig1 {
 
     }
 
-    //Oppgave 5
+    //Oppgave 5 - Fullført
     public static void rotasjon(char[] a){
         //Hvis arrayer er tomt, skriv at det er 0
         if(a.length == 0) {
             System.out.println("0");
         }
         //Rotere arrayet mot høyre en enhet
-        for(char i = 0; i < 1; i++) {
+        //i må være større eller lik en dersom for at
+        //det ingen feilsituasjon skal oppstå
+        for(char i = 0; i <= 1; i++) {
             //Lagrer hvilken verdi siste tallet har
             char siste = a[a.length - 1];
             //Bytter verdien j-1 enhet
@@ -103,12 +104,9 @@ public class Oblig1 {
             //Første verdien får verdien til siste
             a[0] = siste;
         }
-        //Sjekk ut om dette skal skrive!!
-        //System.out.println("")
-
     }
 
-    public static void rotasjon2(char[] a, int k) {
+    public static void rotasjon(char[] a, int k) {
         //Antall plasser den skal rotere mot høyre
         if (a.length == 0) {
             System.out.println("0");

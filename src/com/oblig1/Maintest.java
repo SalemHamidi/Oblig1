@@ -1,5 +1,6 @@
 package com.oblig1;
 
+import java.util.Arrays;
 import java.util.NoSuchElementException;
 import java.util.regex.Pattern;
 
@@ -29,28 +30,29 @@ public class Maintest {
 
 
      */
-    public static int antallUlikeUsortert(int[] a) {
-        int antall = 0;
-
-       //Går gjennom helle arrayet
-        for (int i = 0; i < a.length; i++) {
-            int j = 0;
-            //Sammenlign i med verdien til j, dersom a
-            for (j = 0; j < i; j++) {
-                if (a[i] == a[j])
-                    break;
-            }
-
-            //Dersom elementet ikke har vært tidligere i arrayet legg til 1
-            if (i == j)
-                antall++;
+    public static void rotasjon(char[] a) {
+        //Hvis arrayer er tomt, skriv at det er 0
+        if (a.length == 0) {
+            System.out.println("0");
         }
-        return antall;
+        //Rotere arrayet mot høyre en enhet
+        for (char i = 0; i < 1; i++) {
+            //Lagrer hvilken verdi siste tallet har
+            char siste = a[a.length - 1];
+            //Bytter verdien j-1 enhet
+            for (int j = a.length - 1; j > 0; j--) {
+                a[j] = a[j - 1];
+            }
+            //Første verdien får verdien til siste
+            a[0] = siste;
+        }
     }
 
+
     public static void main(String[] args) {
-        int a[] = {};
-        System.out.println(antallUlikeUsortert(a));
+        char[] a = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'};
+        rotasjon(a);
+        System.out.println(Arrays.toString(a));
     }
 }
 
