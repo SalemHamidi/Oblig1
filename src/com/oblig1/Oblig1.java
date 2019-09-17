@@ -105,7 +105,7 @@ public class Oblig1 {
             a[0] = siste;
         }
     }
-
+    // Oppgave 6 - ikke fullført
     public static void rotasjon(char[] a, int k) {
         //Antall plasser den skal rotere mot høyre
         if (a.length == 0) {
@@ -124,7 +124,6 @@ public class Oblig1 {
                 //Første verdien får verdien til siste
                 a[0] = siste;
             }
-
         }
         //Trenger litt help med rotasjon med nagativ verdi
         if(k < 0) {
