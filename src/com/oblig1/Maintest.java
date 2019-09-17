@@ -29,36 +29,30 @@ public class Maintest {
 
 
      */
-    public static int antallUlikeSortert(int[] a, int n) {
-        int antall = 1;
-        //Sjekker om arrayet er tomt
-        if (a.length == 0) {
-            return 0;
-        }
-        //Går gjennom hele arrayet
-        for (int i = 1; i < a.length; i++) {
+    public static int antallUlikeUsortert(int[] a) {
+        int antall = 0;
+
+       //Går gjennom helle arrayet
+        for (int i = 0; i < a.length; i++) {
             int j = 0;
+            //Sammenlign i med verdien til j, dersom a
             for (j = 0; j < i; j++) {
-                if (a[i] == a[j]) {
+                if (a[i] == a[j])
                     break;
-                }
             }
-            if (i == j){
+
+            //Dersom elementet ikke har vært tidligere i arrayet legg til 1
+            if (i == j)
                 antall++;
-            }
         }
         return antall;
     }
 
     public static void main(String[] args) {
-        int[] a = {4, 72, 24};
-        System.out.println(a, a.length);
-
-
-
+        int a[] = {};
+        System.out.println(antallUlikeUsortert(a));
     }
 }
-
 
 
 

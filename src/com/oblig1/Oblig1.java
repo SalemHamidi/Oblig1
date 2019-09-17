@@ -47,33 +47,40 @@ public class Oblig1 {
         return antall;
     }
 
-    //Oppgave 3 - Delvis fullført
+    //Oppgave 3 - Fullført
     public static int antallUlikeUsortert(int[] a) {
-        int antall = 1;
+        int antall = 0;
 
-        //Sjekker om arrayet er tomt
-        if (a.length == 0) {
-            return 0;
-        }
-        //Går gjennom hele arrayet
-        for (int i = 1; i < a.length - 1; i++) {
+        //Går gjennom helle arrayet
+        for (int i = 0; i < a.length; i++) {
             int j = 0;
-
+            //Sammenlign i med verdien til j, dersom a
             for (j = 0; j < i; j++) {
-                if (a[i] == a[j]) {
+                if (a[i] == a[j])
                     break;
-                }
             }
-            //Hvis i har samme verdi som j legg til en på antall
-            if (i == j) {
+
+            //Dersom elementet ikke har vært tidligere i arrayet legg til 1
+            if (i == j)
                 antall++;
-            }
         }
         return antall;
     }
 
     // Oppgave 4
-    public static void delSortering(int[] a, int left, int right) {
+    public static void delSortering(int[] a) {
+        int left;
+        int rigth;
+
+
+
+
+
+
+
+
+
+
 
 
 
