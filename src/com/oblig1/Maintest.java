@@ -199,12 +199,11 @@ public class Maintest {
     public static String flett(String... s) {
         StringBuilder tekst = new StringBuilder();
 
-        for(char i = 0; i < s[i].length(); i++) {
+        for(char i = 0; i < s[i].length() ; i++) {
 
-                tekst.append(s[i].charAt(i)).append(s[i+1].charAt(i));
-
-
-
+            if (i <= s[i+1].length()) {
+                tekst.append(s[i].charAt(i)).append(s[i + 1].charAt(i));
+            }
         }
         return tekst.toString();
     }
