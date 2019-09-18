@@ -1,5 +1,6 @@
 package com.oblig1;
 
+import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.NoSuchElementException;
 import java.util.regex.Pattern;
@@ -173,6 +174,7 @@ public class Maintest {
         return new int[]{ m, nm, nnm};
     }
 */
+    /*
     public static int[] indekssortering(int[] a) {
         if (a.length < 1) {
             throw new java.util.NoSuchElementException("Tabellen a er tom!");
@@ -192,4 +194,25 @@ public class Maintest {
         int[] indeks = indekssortering(a);
         System.out.println(Arrays.toString(indekssortering(a)));
     }
+
+     */
+    public static String flett(String... s) {
+        StringBuilder tekst = new StringBuilder();
+
+        for(char i = 0; i < s[i].length(); i++) {
+
+                tekst.append(s[i].charAt(i)).append(s[i+1].charAt(i));
+
+
+
+        }
+        return tekst.toString();
+    }
+
+    public static void main(String[] args) {
+        String a = flett("AM ","L","GEDS","ORATKRR","","R TRTE","IO","TGAUU");
+        System.out.println(a);
+
+    }
+
 }
