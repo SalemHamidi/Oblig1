@@ -271,25 +271,3 @@ public class Oblig1 {
     }
 */
 }
-
-
-
-
-
-
-
-
-
-/*
-            if (a[i] == a[i+1]) {
-        throw new NoSuchElementException() {
-                       return "Tomt tabellintervall"
-        }
-    }
-    public static void main(String[] args) {
-	// write your code here
-        System.out.println("Test: Intellij - Github");
-    }
-}
-
- */
