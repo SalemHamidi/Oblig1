@@ -88,13 +88,13 @@ public class Oblig1 {
     //Oppgave 5 - Fullført
     public static void rotasjon(char[] a){
         //Hvis arrayer er tomt, skriv at det er 0
-        if(a.length == 0) {
-            System.out.println("0");
+        if(a.length <= 1) {
+            return;
         }
         //Rotere arrayet mot høyre en enhet
         //i må være større eller lik en dersom for at
         //det ingen feilsituasjon skal oppstå
-        for(char i = 0; i <= 1; i++) {
+        for(char i = 0; i <= 2; i++) {
             //Lagrer hvilken verdi siste tallet har
             char siste = a[a.length - 1];
             //Bytter verdien j-1 enhet
@@ -137,19 +137,22 @@ public class Oblig1 {
         }
     }
 
-    //Oppgave 7 A
+    //Oppgave 7 A - Fullført
     public static String flett(String s, String t) {
-        //Lager strenger som blir laget av s og t
+        //Lager strengen som blir produkten av koden nedfor
+        //laget av variabel s og variabel t
         StringBuilder tekst = new StringBuilder();
 
-        //For-løkken går igjennom alle verdiene i Streng s
-        for(int i = 0; i < s.length(); i++) {
+        //For-løkken går igjennom alle verdiene i Streng s og Streng t.
+        //
+        for(char i = 0; i < s.length() || i < t.length(); i++) {
+            //Velger tegnet som er plassert på plassen til i så lenge
+            //den er mindre en lengden på strengen s
             if (i < s.length()) {
                 tekst.append(s.charAt(i));
             }
-        }
-        //For-løkken går igjennom alle verdiene i Streng t
-        for(int i = 0; i < t.length(); i++) {
+            //Velger tegnet som er plassert på plassen til i så lenge
+            //den er mindre en lengden på strengen t
             if(i < t.length()){
                 tekst.append(t.charAt(i));
             }
