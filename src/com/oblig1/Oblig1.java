@@ -170,7 +170,7 @@ public class Oblig1 {
 
     }
 */
-    //Oppgave 9
+    //Oppgave 9 - Fullført
     public static int[] tredjeMin(int[] a) {
         //Dersom lengden på arrayet er mindre enn 2 skriv ut feilmelding
         if (a.length < 2) {

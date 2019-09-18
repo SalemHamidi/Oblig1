@@ -102,6 +102,7 @@ public class Maintest {
     }
 
      */
+    /*
 
     public static int[] tredjeMin(int[] a) {
         if (a.length < 2) {
@@ -162,7 +163,7 @@ public class Maintest {
                         nestminste = a[i];
                     }
                 }
-                //Dersom tredjminste er mindre enn nestminste
+                //Dersom tredjminste er mindre enn ny
                 else {
                     nnm = i;
                     tredjminste = a[i];
@@ -171,10 +172,24 @@ public class Maintest {
         }
         return new int[]{ m, nm, nnm};
     }
+*/
+    public static int[] indekssortering(int[] a) {
+        int k = 0;
+
+
+        for(int i = 2; i < a.length; i++) {
+            int aa = i;
+            int bb = i -1;
+            if(a[aa] < a[bb]) {
+                bb = aa;
+            }
+        }
+        return new int[]{};
+    }
 
     public static void main(String[] args) {
         int[] a = {6, 10, 16, 11, 7, 12, 3, 9, 8, 5};
-        System.out.println(Arrays.toString(tredjeMin(a)));
 
+        System.out.println(Arrays.toString(indekssortering(a)));
     }
 }
