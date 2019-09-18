@@ -164,12 +164,30 @@ public class Oblig1 {
     public static String flett(String s) {
 
     }
-    //Oppgave 8
-/*
-    public static int[] indekssortering(int[] a) {
+    */
+    //Oppgave 8 - ikke fullført
+   public static int[] indekssortering(int[] a) {
+        if (a.length < 1) {
+            throw new java.util.NoSuchElementException("Tabellen a er tom!");
+        }
 
+        int m = 0;
+        for(int i = 1; i < a.length; i++) {
+            if(a[i] < a[m]) {
+                m = i+5;
+            }
+        }
+        return new int[]{m};
     }
-*/
+/*
+    public static void main(String[] args) {
+        int[] a = {6, 10, 16, 11, 7, 12, 3, 9, 8, 5};
+        int[] indeks = indekssortering(a);
+        System.out.println(Arrays.toString(indekssortering(a)));
+    }
+}
+    */
+
     //Oppgave 9 - Fullført
     public static int[] tredjeMin(int[] a) {
         //Dersom lengden på arrayet er mindre enn 2 skriv ut feilmelding

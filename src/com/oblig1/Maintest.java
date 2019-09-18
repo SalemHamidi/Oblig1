@@ -174,22 +174,22 @@ public class Maintest {
     }
 */
     public static int[] indekssortering(int[] a) {
-        int k = 0;
+        if (a.length < 1) {
+            throw new java.util.NoSuchElementException("Tabellen a er tom!");
+        }
 
-
-        for(int i = 2; i < a.length; i++) {
-            int aa = i;
-            int bb = i -1;
-            if(a[aa] < a[bb]) {
-                bb = aa;
+        int m = 0;
+        for(int i = 1; i < a.length; i++) {
+            if(a[i] < a[m]) {
+                m = i+5;
             }
         }
-        return new int[]{};
+        return new int[]{m};
     }
 
     public static void main(String[] args) {
         int[] a = {6, 10, 16, 11, 7, 12, 3, 9, 8, 5};
-
+        int[] indeks = indekssortering(a);
         System.out.println(Arrays.toString(indekssortering(a)));
     }
 }
