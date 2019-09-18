@@ -67,10 +67,6 @@ public class Maintest {
         }
 
     }
-
-
-
-
     public static void main(String[] args) {
         char[] a = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'};
         rotasjon(a, 4);
@@ -80,34 +76,105 @@ public class Maintest {
         System.out.println(Arrays.toString(a));
     }
 }
-
 */
-    public static String flett(String s, String t) {
-        //Lager strengen som blir produkten av koden nedfor
-        //laget av variabel s og variabel t
+    /*
+    public static String flett(String... s) {
         StringBuilder tekst = new StringBuilder();
-
         //For-løkken går igjennom alle verdiene i Streng s og Streng t.
-        //
-        for(char i = 0; i < s.length() || i < t.length(); i++) {
+        for(char i = 0; i < s.length; i++) {
             //Velger tegnet som er plassert på plassen til i så lenge
             //den er mindre en lengden på strengen s
-            if (i < s.length()) {
-                tekst.append(s.charAt(i));
+            s = s[];
+            if (i < s.length) {
+                s = s[i];
+                tekst.append(s[i].charAt(i));
             }
             //Velger tegnet som er plassert på plassen til i så lenge
             //den er mindre en lengden på strengen t
-            if(i < t.length()){
-                tekst.append(t.charAt(i));
-            }
         }
         return tekst.toString();
     }
 
     public static void main(String[] args) {
-        String a = flett("ABC","DEFGH");
-        String b = flett("IJKLMN","OPQ");
-        String c = flett("","AB");
-        System.out.println(a + "​ ​" + b + "​ ​" + c);
+        String a = flett("AM ","L","GEDS","ORATKRR","","R TRTE","IO","TGAUU");
+        System.out.println(a);
+
+    }
+
+     */
+
+    public static int[] tredjeMin(int[] a) {
+        if (a.length < 2) {
+            throw new NoSuchElementException("Arrayet har mindre enn tre verdier");
+        }
+        //Plasseringen til den minste verdien
+        int m = 0;
+        //Plasseringen til den nest minste verdien
+        int nm = 1;
+        //Plasseringen til den tredj minste verdien
+        int nnm = 2;
+
+        //Dersom verdien til den nestminste er mindre enn minste bytt plass
+        if (a[nm] < a[m]) {
+            m = 1;
+            nm = 0;
+        }
+        //Dersom verdien til den tredjeminste er mindre enn minste bytt plass
+        if (a[nnm] < a[m]) {
+            int temp = nnm;
+            nnm = m;
+            m = temp;
+        }
+        //Dersom verdien til den tredjeminste er mindre enn nestminste bytt plass
+        if (a[nnm] < a[nm]) {
+            int temp = nnm;
+            nnm = nm;
+            nm = temp;
+        }
+
+
+        //Verdien til a[0]
+        int minste = a[m];
+        //Verdien til a[1]
+        int nestminste = a[nm];
+        //Verdien til a[2]
+        int tredjminste = a[nnm];
+        //For-løkken går gjennom hele arrayet
+        for (int i = 3; i < a.length; i++) {
+            //Dersom a[i] er mindre enn tredje minste
+            if (a[i] < tredjminste) {
+                //Dersom a[i] er mindre enn nestminste
+                if (a[i] < nestminste) {
+                    //Dersom a[i] er mindre enn minste
+                    if (a[i] < minste) {
+                        nnm = nm;
+                        tredjminste = nestminste; //ny tredjminste
+                        nm = m;
+                        nestminste = minste; //ny nestminste
+                        m = i;
+                        minste = a[i]; //ny minste
+                    }
+                    //Dersom tredjminste er mindre enn nestminste
+                    else{
+                        nnm = nm;
+                        tredjminste = nestminste;
+                        nm = i;
+                        nestminste = a[i];
+                    }
+                }
+                //Dersom tredjminste er mindre enn nestminste
+                else {
+                    nnm = i;
+                    tredjminste = a[i];
+                }
+            }
+        }
+        return new int[]{ m, nm, nnm};
+    }
+
+    public static void main(String[] args) {
+        int[] a = {6, 10, 16, 11, 7, 12, 3, 9, 8, 5};
+        System.out.println(Arrays.toString(tredjeMin(a)));
+
     }
 }

@@ -159,12 +159,11 @@ public class Oblig1 {
         }
         return tekst.toString();
     }
-    //Oppgave 7
+    //Oppgave 7B - Ikke fullført
     /*
-    public static String flett2(St  ring s) {
+    public static String flett(String s) {
 
     }
-     */
     //Oppgave 8
 /*
     public static int[] indekssortering(int[] a) {
@@ -172,11 +171,74 @@ public class Oblig1 {
     }
 */
     //Oppgave 9
-/*
     public static int[] tredjeMin(int[] a) {
+        //Dersom lengden på arrayet er mindre enn 2 skriv ut feilmelding
+        if (a.length < 2) {
+            throw new NoSuchElementException("Arrayet har mindre enn tre verdier");
+        }
+        //Plasseringen til den minste verdien
+        int m = 0;
+        //Plasseringen til den nest minste verdien
+        int nm = 1;
+        //Plasseringen til den tredj minste verdien
+        int nnm = 2;
 
+        //Dersom verdien til den nestminste er mindre enn minste bytt plass
+        if (a[nm] < a[m]) {
+            m = 1;
+            nm = 0;
+        }
+        //Dersom verdien til den tredjeminste er mindre enn minste bytt plass
+        if (a[nnm] < a[m]) {
+            int temp = nnm;
+            nnm = m;
+            m = temp;
+        }
+        //Dersom verdien til den tredjeminste er mindre enn nestminste bytt plass
+        if (a[nnm] < a[nm]) {
+            int temp = nnm;
+            nnm = nm;
+            nm = temp;
+        }
+
+        //Verdien til a[0]
+        int minste = a[m];
+        //Verdien til a[1]
+        int nestminste = a[nm];
+        //Verdien til a[2]
+        int tredjminste = a[nnm];
+        //For-løkken går gjennom hele arrayet
+        for (int i = 3; i < a.length; i++) {
+            //Dersom a[i] er mindre enn tredje minste
+            if (a[i] < tredjminste) {
+                //Dersom a[i] er mindre enn nestminste
+                if (a[i] < nestminste) {
+                    //Dersom a[i] er mindre enn minste
+                    if (a[i] < minste) {
+                        nnm = nm;
+                        tredjminste = nestminste; //ny tredjminste
+                        nm = m;
+                        nestminste = minste; //ny nestminste
+                        m = i;
+                        minste = a[i]; //ny minste
+                    }
+                    //Dersom tredjminste er mindre enn nestminste
+                    else{
+                        nnm = nm;
+                        tredjminste = nestminste;
+                        nm = i;
+                        nestminste = a[i];
+                    }
+                }
+                //Dersom tredjminste er mindre enn minste
+                else {
+                    nnm = i;
+                    tredjminste = a[i];
+                }
+            }
+        }
+        return new int[]{ m, nm, nnm};
     }
-*/
 /*
     //Oppgave 10
     public static boolean inneholdt(String a, String b){
