@@ -1,80 +1,81 @@
 /*
 Obligatorisk oppgave 1, av Salem Hamidi - s333946
  */
-
 package com.oblig1;
 
 import java.util.NoSuchElementException;
 
 public class Oblig1 {
 
-    //Oppgave 1 - ikke fullført
+    //Oppgave 1 - Completed
     public static int maks(int[] a) {
-        int max_value = 0;
-        if (a.length > 0) {
-            for (int i = 1; i < a.length; i++) {
-                if (a[i] > a[i - 1]) {
-                    max_value = a[i];
-                }
-            }
-            return max_value;
-        }
-        else{
+        //Throw an exception if the length of the array is less then one
+        if (a.length < 1) {
             throw new NoSuchElementException("Arrayet er tomt");
         }
+        int i;
+        //Index of the temporary highest value
+        int max_value = 0;
+        for (i = a.length - 1; i > 0; i--) {
+            for (int j = 1; j < i; j++) {
+                if (a[j] > a[max_value])
+                    max_value = j;
+            }
+
+            int temp = a[max_value];
+            a[max_value] = a[i];
+            a[i] = temp;
+        }
+        return a[a.length-1];
     }
 
-    //Oppgave 2 - Fullført
+
+
+    //Oppgave 2 - Completed
     public static int antallUlikeSortert(int[] a) {
-        int antall = 1;
-        //Sjekker om tabellen er tom;
+        int count = 1;
+        //Checking if the list is empty
         if (a.length == 0) {
             return 0;
         }
-        //Sjekker om koden er sortert i stigende rekkefølge
+        //Checking if the list is in ascending array
         if (a[0] > a[1]) {
             throw new IllegalStateException("Arrayet er ikke sortert i stigende rekkefølge");
         }
-
         for (int i = 0; i < a.length - 1; i++) {
-            //Siden tabellen er på stigende rekkefølge
-            //trenger vi kun å sjekke om tallet før og etter er
-            //like, dersom de ikke er like skal metoden telle
+            //Since the list is in acending order
+            //we only need to check if the number before and
+            //after are alike, if they are not then add one
             if (a[i] != a[i + 1]) {
-                antall++;
+                count++;
             }
         }
-        return antall;
+        return count;
     }
 
-    //Oppgave 3 - Fullført
+    //Oppgave 3 - Completed
     public static int antallUlikeUsortert(int[] a) {
-        int antall = 0;
+        int count = 0;
 
-        //Går gjennom helle arrayet
+        //Loop through the array from 0 to the list length
         for (int i = 0; i < a.length; i++) {
             int j = 0;
-            //Sammenlign i med verdien til j, dersom a
+            //If the number have been earlier in the list break
             for (j = 0; j < i; j++) {
                 if (a[i] == a[j])
                     break;
             }
-
-            //Dersom elementet ikke har vært tidligere i arrayet legg til 1
+            //If the value havent been earlier in the list add one
             if (i == j)
-                antall++;
+                count++;
         }
-        return antall;
+        return count;
     }
 
     // Oppgave 4
     public static void delSortering(int[] a) {
-
-
-
-
-
-
+        int left;
+        int rigth;
 
 
 
@@ -85,74 +86,72 @@ public class Oblig1 {
 
     }
 
-    //Oppgave 5 - Fullført
+    //Oppgave 5 - Completed
     public static void rotasjon(char[] a){
-        //Hvis arrayer er tomt, skriv at det er 0
+        //If the list is empty or has one element return the same list
         if(a.length <= 1) {
             return;
         }
-        //Rotere arrayet mot høyre en enhet
-        //i må være større eller lik en dersom for at
-        //det ingen feilsituasjon skal oppstå
+        //Rotate the list one element to the right
         for(char i = 0; i <= 2; i++) {
-            //Lagrer hvilken verdi siste tallet har
+            //Save with value the last element has
             char siste = a[a.length - 1];
-            //Bytter verdien j-1 enhet
+            //Change the value j-1
             for(int j = a.length - 1; j > 0; j--) {
                 a[j] = a[j-1];
             }
-            //Første verdien får verdien til siste
+            //Change the first value with the last value
             a[0] = siste;
         }
     }
-    // Oppgave 6 - ikke fullført
+    //Oppgave 6 - Completed
     public static void rotasjon(char[] a, int k) {
-        //Antall plasser den skal rotere mot høyre
-        if (a.length == 0) {
-            System.out.println("0");
+        //If the list is empty or has value one return same list
+        if (a.length <= 1) {
+            return;
         }
-        //Rotere arrayet mot høyre like manger ganger som verdien
-        //til antallRotasjoner
-        if(k > 0) {
+        //Rotate the list to the right as many times as the value of k
+        if (k > 0) {
             for (char i = 0; i < k; i++) {
-                //Lagrer hvilken verdi siste tallet har
+                //Saves the value of the last element
                 char siste = a[a.length - 1];
-                //Alle elementer flyttes n mot høyre
+                //Move alle element k-times to the right
                 for (int j = a.length - 1; j > 0; j--) {
                     a[j] = a[j - 1];
                 }
-                //Første verdien får verdien til siste
+                //Give the first value to the last
                 a[0] = siste;
             }
         }
-        //Trenger litt help med rotasjon med nagativ verdi
-        if(k < 0) {
-            for(char i = 0; i < k; i++) {
-                char første = a[0];
-                for(int j = a.length - 1; j < k; j++) {
-                    a[j] = a[0];
+        //If the value of k-times to the right is a negative number
+        if (k < 0) {
+                for (char i = 0; i < k + a.length; i++) {
+                    //Saves the value of the last element
+                    char siste = a[a.length - 1];
+                    //Move alle element k-time to the right
+                    for (int j = a.length - 1; j > 0; j--) {
+                        a[j] = a[j - 1];
+                    }
+                    //Give the first value to the last
+                    a[0] = siste;
                 }
-                a[0] = første;
             }
         }
-    }
 
-    //Oppgave 7 A - Fullført
+    //Oppgave 7 A - Completed
     public static String flett(String s, String t) {
-        //Lager strengen som blir produkten av koden nedfor
-        //laget av variabel s og variabel t
+        //Create a new string from string s and string t
         StringBuilder tekst = new StringBuilder();
 
-        //For-løkken går igjennom alle verdiene i Streng s og Streng t.
-        //
+        //Loop throgh all the letters in string s and string t
         for(char i = 0; i < s.length() || i < t.length(); i++) {
-            //Velger tegnet som er plassert på plassen til i så lenge
-            //den er mindre en lengden på strengen s
+            //Choose the value of i as long as the lenght of the string is less
+            //then string s
             if (i < s.length()) {
                 tekst.append(s.charAt(i));
             }
-            //Velger tegnet som er plassert på plassen til i så lenge
-            //den er mindre en lengden på strengen t
+            //Choose the value of i as long as the lenght of the string is less
+            //then string t
             if(i < t.length()){
                 tekst.append(t.charAt(i));
             }
@@ -165,20 +164,13 @@ public class Oblig1 {
 
     }
     */
-    //Oppgave 8 - ikke fullført
+   /* //Oppgave 8 - ikke fullført
    public static int[] indekssortering(int[] a) {
         if (a.length < 1) {
             throw new java.util.NoSuchElementException("Tabellen a er tom!");
         }
-
-        int m = 0;
-        for(int i = 1; i < a.length; i++) {
-            if(a[i] < a[m]) {
-                m = i+5;
-            }
-        }
-        return new int[]{m};
-    }
+   }
+   */
 /*
     public static void main(String[] args) {
         int[] a = {6, 10, 16, 11, 7, 12, 3, 9, 8, 5};
@@ -188,59 +180,61 @@ public class Oblig1 {
 }
     */
 
-    //Oppgave 9 - Fullført
+    //Oppgave 9 - Completed
     public static int[] tredjeMin(int[] a) {
-        //Dersom lengden på arrayet er mindre enn 2 skriv ut feilmelding
+        //If the length of the array is less then two throw exception
         if (a.length < 2) {
             throw new NoSuchElementException("Arrayet har mindre enn tre verdier");
         }
-        //Plasseringen til den minste verdien
+        //Index of the element with the smallest value
         int m = 0;
-        //Plasseringen til den nest minste verdien
+        //Index of the element with the second smallest value
         int nm = 1;
-        //Plasseringen til den tredj minste verdien
+        //Index of the element with the third smallest value
         int nnm = 2;
-
-        //Dersom verdien til den nestminste er mindre enn minste bytt plass
+        //If the value of the element of the second smallest index is less then the value
+        //of the value of the smallest index change places
         if (a[nm] < a[m]) {
             m = 1;
             nm = 0;
         }
-        //Dersom verdien til den tredjeminste er mindre enn minste bytt plass
+        //If the value of the element of the third smallest index is less then the value
+        //of the value of the smallest index change places
         if (a[nnm] < a[m]) {
             int temp = nnm;
             nnm = m;
             m = temp;
         }
-        //Dersom verdien til den tredjeminste er mindre enn nestminste bytt plass
+        //If the value of the element of the third smallest index is less then the value
+        //of the value of the second smallest index change places
         if (a[nnm] < a[nm]) {
             int temp = nnm;
             nnm = nm;
             nm = temp;
         }
 
-        //Verdien til a[0]
+        //Value of a[0]
         int minste = a[m];
-        //Verdien til a[1]
+        //Value of a[1]
         int nestminste = a[nm];
-        //Verdien til a[2]
+        //Value of a[2]
         int tredjminste = a[nnm];
-        //For-løkken går gjennom hele arrayet
+        //Loop through the whole list
         for (int i = 3; i < a.length; i++) {
-            //Dersom a[i] er mindre enn tredje minste
+            //If a[i] is less then third smallest
             if (a[i] < tredjminste) {
-                //Dersom a[i] er mindre enn nestminste
+                //If a[i] is less then second smallest
                 if (a[i] < nestminste) {
-                    //Dersom a[i] er mindre enn minste
+                    //If a[i] is less then smallest
                     if (a[i] < minste) {
                         nnm = nm;
-                        tredjminste = nestminste; //ny tredjminste
+                        tredjminste = nestminste; //new third smallest
                         nm = m;
-                        nestminste = minste; //ny nestminste
+                        nestminste = minste; //new second smallest
                         m = i;
-                        minste = a[i]; //ny minste
+                        minste = a[i]; //new smallest
                     }
-                    //Dersom tredjminste er mindre enn nestminste
+                    //If third samllest is less then second smallest
                     else{
                         nnm = nm;
                         tredjminste = nestminste;
@@ -248,7 +242,7 @@ public class Oblig1 {
                         nestminste = a[i];
                     }
                 }
-                //Dersom tredjminste er mindre enn minste
+                //If third smallest is less then smalles
                 else {
                     nnm = i;
                     tredjminste = a[i];
@@ -257,17 +251,27 @@ public class Oblig1 {
         }
         return new int[]{ m, nm, nnm};
     }
-/*
-    //Oppgave 10
-    public static boolean inneholdt(String a, String b){
-        if (a == null) {
-            return true;
-        }
-        if(a.contains("[A-Z]") || b.contains("[A-Z]")) {
-            return true;
+
+    //Oppgave 10 - Completed
+      public static boolean inneholdt(String a, String b) {
+        //Makes a new list that counts
+        int[] count = new int[256];
+
+        char[] b1 = b.toCharArray();
+        for(int i = 0; i < b1.length; i++) {
+            if(!Character.isUpperCase(b1[i])) {
+                return false;
+            }
+            count[b1[i]]++;
         }
 
-
+        char[] a1 = a.toCharArray();
+        for(int i = 0; i < a1.length; i++) {
+            if(!Character.isUpperCase(a1[i])) {
+                return false;
+            }
+            count[a1[i]]--;
+        }
+        return true;
     }
-*/
 }

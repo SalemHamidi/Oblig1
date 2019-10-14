@@ -1,1 +1,9 @@
 Obligatorisk oppgave 1, av Salem Hamidi - s333946
+
+Oppgave 1:
+Det blir (n - 1) sammenligninger og algoritmen er av kvadratisk
+orden altså (n^2)
+Antall ombyttninger uavhengig av om listen allerede er sortert avhenger av hvor
+mange verdien listen inneholder. Dette vil påvirke både beste, dårligste og gjennomsnitt
+resultatet.
+
