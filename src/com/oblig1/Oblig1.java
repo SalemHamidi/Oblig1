@@ -29,13 +29,11 @@ public class Oblig1 {
         return a[a.length-1];
     }
 
-
-
     //Oppgave 2 - Completed
     public static int antallUlikeSortert(int[] a) {
         int count = 1;
         //Checking if the list is empty
-        if (a.length == 0) {
+        if (a.length < 1) {
             return 0;
         }
         //Checking if the list is in ascending array
