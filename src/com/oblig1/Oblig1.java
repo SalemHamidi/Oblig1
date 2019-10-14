@@ -77,13 +77,6 @@ public class Oblig1 {
         int left;
         int rigth;
 
-
-
-
-
-
-
-
     }
 
     //Oppgave 5 - Completed
@@ -92,8 +85,9 @@ public class Oblig1 {
         if(a.length <= 1) {
             return;
         }
+        int antallrotasjoner = 1;
         //Rotate the list one element to the right
-        for(char i = 0; i <= 2; i++) {
+        for(char i = 0; i < antallrotasjoner; i++) {
             //Save with value the last element has
             char siste = a[a.length - 1];
             //Change the value j-1
