@@ -10,37 +10,37 @@ public class Oblig1 {
     //Oppgave 1 - Completed
     public static int maks(int[] a) {
         //Throw an exception if the length of the array is less then one
-        if (a.length < 1) {
+        if (a.length == 0) {
             throw new NoSuchElementException("Arrayet er tomt");
         }
-        int i;
-        //Index of the temporary highest value
         int max_value = 0;
-        for (i = a.length - 1; i > 0; i--) {
-            for (int j = 1; j < i; j++) {
-                if (a[j] > a[max_value])
-                    max_value = j;
+        int temp;
+        //Index of the temporary highest value
+        for (int i = 1; i < a.length; i++) {
+            if (a[max_value] > a[i]) {
+                temp = a[i];
+                max_value = a[i];
+                temp = max_value;
             }
-
-            int temp = a[max_value];
-            a[max_value] = a[i];
-            a[i] = temp;
         }
-        return a[a.length-1];
+        return a[a.length - 1];
+    }
+    public static int ombyttinger(int[] a) {
+        return 0;
     }
 
     //Oppgave 2 - Completed
     public static int antallUlikeSortert(int[] a) {
         int count = 1;
         //Checking if the list is empty
-        if (a.length < 1) {
+        if (a.length <= 1) {
             return 0;
         }
         //Checking if the list is in ascending array
-        if (a[0] > a[1]) {
+        if (a[0] < a[1]) {
             throw new IllegalStateException("Arrayet er ikke sortert i stigende rekkefølge");
         }
-        for (int i = 0; i < a.length - 1; i++) {
+        for(int i = 0; i < a.length; i++) {
             //Since the list is in acending order
             //we only need to check if the number before and
             //after are alike, if they are not then add one
@@ -71,9 +71,28 @@ public class Oblig1 {
     }
 
     // Oppgave 4
-    public static void delSortering(int[] a) {
-        int left;
-        int rigth;
+    public static void delsortering(int[] a) {
+        //If the length of list is less then one return the same array
+        if(a.length < 1) {
+            return;
+        }
+        int v = 0;
+        int h = a.length - 1;
+        while (v < h) {
+            while(a[v] % 2 != 0) {
+                v++;
+            }
+            while(a[h] % 2 == 1){
+                h++;
+            }
+            if(v < h){
+                int temp = a[v];
+                a[v] = a[h];
+                a[h] = temp;
+                v++;
+                h++;
+            }
+        }
 
     }
 
@@ -151,31 +170,24 @@ public class Oblig1 {
         return tekst.toString();
     }
     //Oppgave 7B - Ikke fullført
-    /*
-    public static String flett(String s) {
 
+    public static String flett(String... s) {
+        return null;
     }
-    */
-   /* //Oppgave 8 - ikke fullført
+
+    //Oppgave 8 - ikke fullført
    public static int[] indekssortering(int[] a) {
         if (a.length < 1) {
             throw new java.util.NoSuchElementException("Tabellen a er tom!");
         }
+        return null;
    }
-   */
-/*
-    public static void main(String[] args) {
-        int[] a = {6, 10, 16, 11, 7, 12, 3, 9, 8, 5};
-        int[] indeks = indekssortering(a);
-        System.out.println(Arrays.toString(indekssortering(a)));
-    }
-}
-    */
+
 
     //Oppgave 9 - Completed
     public static int[] tredjeMin(int[] a) {
         //If the length of the array is less then two throw exception
-        if (a.length < 2) {
+        if (a.length < 3) {
             throw new NoSuchElementException("Arrayet har mindre enn tre verdier");
         }
         //Index of the element with the smallest value
@@ -246,7 +258,10 @@ public class Oblig1 {
 
     //Oppgave 10 - Completed
       public static boolean inneholdt(String a, String b) {
+
+
         //Makes a new list that counts
+
         int[] count = new int[256];
 
         char[] b1 = b.toCharArray();
