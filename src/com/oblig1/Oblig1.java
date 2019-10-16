@@ -9,18 +9,21 @@ public class Oblig1 {
 
     //Oppgave 1 - Completed
     public static int maks(int[] a) {
+
         //Throw an exception if the length of the array is less then one
         if (a.length == 0) {
             throw new NoSuchElementException("Arrayet er tomt");
         }
-        int max_value = 0;
-        int temp;
+
+        int max_value = a[0];
+        int m = 0;
+
         //Index of the temporary highest value
         for (int i = 1; i < a.length; i++) {
-            if (a[max_value] > a[i]) {
-                temp = a[i];
-                max_value = a[i];
-                temp = max_value;
+            if (max_value < a[i]) {
+                int temp = a[i];
+                a[i] = max_value;
+                max_value = temp;
             }
         }
         return a[a.length - 1];
@@ -33,14 +36,17 @@ public class Oblig1 {
     public static int antallUlikeSortert(int[] a) {
         int count = 1;
         //Checking if the list is empty
-        if (a.length <= 1) {
+        if(a.length == 0) {
             return 0;
         }
+        if (a.length == 1) {
+            return 1;
+        }
         //Checking if the list is in ascending array
-        if (a[0] < a[1]) {
+        if (a[0] > a[1]) {
             throw new IllegalStateException("Arrayet er ikke sortert i stigende rekkefølge");
         }
-        for(int i = 0; i < a.length; i++) {
+        for(int i = 0; i < a.length - 1; i++) {
             //Since the list is in acending order
             //we only need to check if the number before and
             //after are alike, if they are not then add one
@@ -78,6 +84,11 @@ public class Oblig1 {
         }
         int v = 0;
         int h = a.length - 1;
+        for(int i = 0; i < a.length; i++) {
+            if(a[i] % 2 != 0){
+                return;
+            }
+        }
         while (v < h) {
             while(a[v] % 2 != 0) {
                 v++;
@@ -118,11 +129,11 @@ public class Oblig1 {
     //Oppgave 6 - Completed
     public static void rotasjon(char[] a, int k) {
         //If the list is empty or has value one return same list
-        if (a.length <= 1) {
+        if (a.length == 0) {
             return;
         }
         //Rotate the list to the right as many times as the value of k
-        if (k > 0) {
+        if ((k %= a.length) > 0) {
             for (char i = 0; i < k; i++) {
                 //Saves the value of the last element
                 char siste = a[a.length - 1];
@@ -135,7 +146,7 @@ public class Oblig1 {
             }
         }
         //If the value of k-times to the right is a negative number
-        if (k < 0) {
+        if ((k %= a.length) > 0) {
                 for (char i = 0; i < k + a.length; i++) {
                     //Saves the value of the last element
                     char siste = a[a.length - 1];
@@ -259,9 +270,7 @@ public class Oblig1 {
     //Oppgave 10 - Completed
       public static boolean inneholdt(String a, String b) {
 
-
         //Makes a new list that counts
-
         int[] count = new int[256];
 
         char[] b1 = b.toCharArray();
