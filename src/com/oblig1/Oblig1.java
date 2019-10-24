@@ -28,12 +28,23 @@ public class Oblig1 {
         return a[a.length - 1];
     }
     public static int ombyttinger(int[] a) {
-        return 0;
+        if(a.length < 1) {
+            throw new NoSuchElementException("Tabellen er tom");
+        }
+        int antall = 0;
+        for(int i = 0; i < a.length - 1; i++) {
+            if(a[i] > a[i+1]) {
+                int ombyttinger = a[i];
+                a[i] = a[i + 1];
+                a[i + 1] = ombyttinger;
+                antall++;
+            }
+        }
+        return antall;
     }
 
     //Oppgave 2 - Completed
     public static int antallUlikeSortert(int[] a) {
-        int count = 1;
         //Checking if the list is empty
         if(a.length == 0) {
             return 0;
@@ -43,17 +54,22 @@ public class Oblig1 {
         }
         //Checking if the list is in ascending array
         if (a[0] > a[1]) {
-            throw new IllegalStateException("Arrayet er ikke sortert i stigende rekkefølge");
+            throw new IllegalStateException("Tabellen er ikke sortert i stigende rekkefølge");
         }
-        for(int i = 0; i < a.length - 1; i++) {
+
+        int antall = 1;
+        int temp = a[0];
+
+        for(int i = 1; i < a.length; i++) {
             //Since the list is in acending order
             //we only need to check if the number before and
             //after are alike, if they are not then add one
-            if (a[i] != a[i + 1]) {
-                count++;
+            if (a[i] > temp) {
+                antall++;
+                temp = a[i];
             }
         }
-        return count;
+        return antall;
     }
 
     //Oppgave 3 - Completed
