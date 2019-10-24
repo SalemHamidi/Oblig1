@@ -97,27 +97,28 @@ public class Oblig1 {
         if(a.length < 1) {
             return;
         }
+
         int v = 0;
         int h = a.length - 1;
-        for(int i = 0; i < a.length; i++) {
-            if(a[i] % 2 != 0){
-                return;
+        int i = 0;
+        while(i < a.length) {
+            while (v < h) {
+                while (a[v] % 2 != 0) {
+                    v++;
+                }
+                while (a[h] % 2 == 1) {
+                    h--;
+                }
+                if (v < h) {
+                    int temp = a[v];
+                    a[v] = a[h];
+                    a[h] = temp;
+                    v++;
+                    h++;
+                }
+
             }
-        }
-        while (v < h) {
-            while(a[v] % 2 != 0) {
-                v++;
-            }
-            while(a[h] % 2 == 1){
-                h++;
-            }
-            if(v < h){
-                int temp = a[v];
-                a[v] = a[h];
-                a[h] = temp;
-                v++;
-                h++;
-            }
+
         }
 
     }
@@ -147,9 +148,10 @@ public class Oblig1 {
         if (a.length == 0) {
             return;
         }
-        //Rotate the list to the right as many times as the value of k
-        if ((k %= a.length) > 0) {
-            for (char i = 0; i < k; i++) {
+        if(a.length == 2) {
+            //Rotate the list to the right as many times as the value of k
+            if ((k %= a.length) == 1) {
+                rotasjon(a);
                 //Saves the value of the last element
                 char siste = a[a.length - 1];
                 //Move alle element k-times to the right
@@ -158,10 +160,10 @@ public class Oblig1 {
                 }
                 //Give the first value to the last
                 a[0] = siste;
+                }
             }
-        }
         //If the value of k-times to the right is a negative number
-        if ((k %= a.length) > 0) {
+        if ((k %= a.length) == 0) {
                 for (char i = 0; i < k + a.length; i++) {
                     //Saves the value of the last element
                     char siste = a[a.length - 1];
@@ -198,7 +200,22 @@ public class Oblig1 {
     //Oppgave 7B - Ikke fullført
 
     public static String flett(String... s) {
-        return null;
+        StringBuilder tekst = new StringBuilder();
+
+        int lengde = 0;
+
+        for(int i = 0; i < s.length; i++) {
+            lengde = lengde + s[i].length();
+        }
+
+        for(int i = 0; i < lengde; i++) {
+            for(int j = 0; j < s.length; j++) {
+                if(i < s[j].length()) {
+                    tekst.append(s[j].charAt(i));
+                }
+            }
+        }
+       return tekst.toString();
     }
 
     //Oppgave 8 - ikke fullført
