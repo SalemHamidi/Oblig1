@@ -3,6 +3,7 @@ Obligatorisk oppgave 1, av Salem Hamidi - s333946
  */
 package com.oblig1;
 
+import java.util.Arrays;
 import java.util.NoSuchElementException;
 
 public class Oblig1 {
@@ -27,13 +28,14 @@ public class Oblig1 {
         }
         return a[a.length - 1];
     }
+
     public static int ombyttinger(int[] a) {
-        if(a.length < 1) {
+        if (a.length < 1) {
             throw new NoSuchElementException("Tabellen er tom");
         }
         int antall = 0;
-        for(int i = 0; i < a.length - 1; i++) {
-            if(a[i] > a[i+1]) {
+        for (int i = 0; i < a.length - 1; i++) {
+            if (a[i] > a[i + 1]) {
                 int ombyttinger = a[i];
                 a[i] = a[i + 1];
                 a[i + 1] = ombyttinger;
@@ -46,7 +48,7 @@ public class Oblig1 {
     //Oppgave 2 - Completed
     public static int antallUlikeSortert(int[] a) {
         //Checking if the list is empty
-        if(a.length == 0) {
+        if (a.length == 0) {
             return 0;
         }
         if (a.length == 1) {
@@ -60,7 +62,7 @@ public class Oblig1 {
         int antall = 1;
         int temp = a[0];
 
-        for(int i = 1; i < a.length; i++) {
+        for (int i = 1; i < a.length; i++) {
             //Since the list is in acending order
             //we only need to check if the number before and
             //after are alike, if they are not then add one
@@ -94,14 +96,14 @@ public class Oblig1 {
     // Oppgave 4
     public static void delsortering(int[] a) {
         //If the length of list is less then one return the same array
-        if(a.length < 1) {
+        if (a.length < 1) {
             return;
         }
 
         int v = 0;
         int h = a.length - 1;
         int i = 0;
-        while(i < a.length) {
+        while (i < a.length) {
             while (v < h) {
                 while (a[v] % 2 != 0) {
                     v++;
@@ -124,31 +126,32 @@ public class Oblig1 {
     }
 
     //Oppgave 5 - Completed
-    public static void rotasjon(char[] a){
+    public static void rotasjon(char[] a) {
         //If the list is empty or has one element return the same list
-        if(a.length <= 1) {
+        if (a.length <= 1) {
             return;
         }
         int antallrotasjoner = 1;
         //Rotate the list one element to the right
-        for(char i = 0; i < antallrotasjoner; i++) {
+        for (char i = 0; i < antallrotasjoner; i++) {
             //Save with value the last element has
             char siste = a[a.length - 1];
             //Change the value j-1
-            for(int j = a.length - 1; j > 0; j--) {
-                a[j] = a[j-1];
+            for (int j = a.length - 1; j > 0; j--) {
+                a[j] = a[j - 1];
             }
             //Change the first value with the last value
             a[0] = siste;
         }
     }
+
     //Oppgave 6 - Completed
     public static void rotasjon(char[] a, int k) {
         //If the list is empty or has value one return same list
         if (a.length == 0) {
             return;
         }
-        if(a.length == 2) {
+        if (a.length == 2) {
             //Rotate the list to the right as many times as the value of k
             if ((k %= a.length) == 1) {
                 rotasjon(a);
@@ -160,22 +163,22 @@ public class Oblig1 {
                 }
                 //Give the first value to the last
                 a[0] = siste;
-                }
-            }
-        //If the value of k-times to the right is a negative number
-        if ((k %= a.length) == 0) {
-                for (char i = 0; i < k + a.length; i++) {
-                    //Saves the value of the last element
-                    char siste = a[a.length - 1];
-                    //Move alle element k-time to the right
-                    for (int j = a.length - 1; j > 0; j--) {
-                        a[j] = a[j - 1];
-                    }
-                    //Give the first value to the last
-                    a[0] = siste;
-                }
             }
         }
+        //If the value of k-times to the right is a negative number
+        if ((k %= a.length) == 0) {
+            for (char i = 0; i < k + a.length; i++) {
+                //Saves the value of the last element
+                char siste = a[a.length - 1];
+                //Move alle element k-time to the right
+                for (int j = a.length - 1; j > 0; j--) {
+                    a[j] = a[j - 1];
+                }
+                //Give the first value to the last
+                a[0] = siste;
+            }
+        }
+    }
 
     //Oppgave 7 A - Completed
     public static String flett(String s, String t) {
@@ -183,7 +186,7 @@ public class Oblig1 {
         StringBuilder tekst = new StringBuilder();
 
         //Loop throgh all the letters in string s and string t
-        for(char i = 0; i < s.length() || i < t.length(); i++) {
+        for (char i = 0; i < s.length() || i < t.length(); i++) {
             //Choose the value of i as long as the lenght of the string is less
             //then string s
             if (i < s.length()) {
@@ -191,7 +194,7 @@ public class Oblig1 {
             }
             //Choose the value of i as long as the lenght of the string is less
             //then string t
-            if(i < t.length()){
+            if (i < t.length()) {
                 tekst.append(t.charAt(i));
             }
         }
@@ -204,27 +207,27 @@ public class Oblig1 {
 
         int lengde = 0;
 
-        for(int i = 0; i < s.length; i++) {
+        for (int i = 0; i < s.length; i++) {
             lengde = lengde + s[i].length();
         }
 
-        for(int i = 0; i < lengde; i++) {
-            for(int j = 0; j < s.length; j++) {
-                if(i < s[j].length()) {
+        for (int i = 0; i < lengde; i++) {
+            for (int j = 0; j < s.length; j++) {
+                if (i < s[j].length()) {
                     tekst.append(s[j].charAt(i));
                 }
             }
         }
-       return tekst.toString();
+        return tekst.toString();
     }
 
     //Oppgave 8 - ikke fullført
-   public static int[] indekssortering(int[] a) {
+    public static int[] indekssortering(int[] a) {
         if (a.length < 1) {
             throw new java.util.NoSuchElementException("Tabellen a er tom!");
         }
         return null;
-   }
+    }
 
 
     //Oppgave 9 - Completed
@@ -282,7 +285,7 @@ public class Oblig1 {
                         minste = a[i]; //new smallest
                     }
                     //If third samllest is less then second smallest
-                    else{
+                    else {
                         nnm = nm;
                         tredjminste = nestminste;
                         nm = i;
@@ -296,30 +299,52 @@ public class Oblig1 {
                 }
             }
         }
-        return new int[]{ m, nm, nnm};
+        return new int[]{m, nm, nnm};
     }
 
     //Oppgave 10 - Completed
-      public static boolean inneholdt(String a, String b) {
-
-        //Makes a new list that counts
-        int[] count = new int[256];
-
-        char[] b1 = b.toCharArray();
-        for(int i = 0; i < b1.length; i++) {
-            if(!Character.isUpperCase(b1[i])) {
-                return false;
-            }
-            count[b1[i]]++;
+    public static boolean inneholdt(String a, String b) {
+        //If a and b is similar return true;
+        if (a.equals(b)) {
+            return true;
+        }
+        //If a is empty return true;
+        if (a.equals("")) {
+            return true;
+        }
+        //If b is empty return false;
+        if (b.equals("")) {
+            return false;
+        }
+        //If b is shorter than a return false;
+        if (b.length() < a.length()) {
+            return false;
         }
 
         char[] a1 = a.toCharArray();
-        for(int i = 0; i < a1.length; i++) {
-            if(!Character.isUpperCase(a1[i])) {
-                return false;
+        char[] b1 = b.toCharArray();
+
+        Arrays.sort(a1);
+        Arrays.sort(b1);
+
+        a = new String(a1);
+        b = new String(b1);
+
+        int lik = 0;
+
+        for (int i = 0; i < b.length(); i++) {
+            if (lik < a.length()) {
+                if (b.charAt(i) == a.charAt(lik)) {
+                    lik++;
+                }
             }
-            count[a1[i]]--;
         }
-        return true;
+
+        if (lik == a.length()) {
+            return true;
+        }
+        else{
+            return false;
+        }
     }
 }
