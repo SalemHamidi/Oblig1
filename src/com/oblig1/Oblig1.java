@@ -51,17 +51,14 @@ public class Oblig1 {
         if (a.length == 0) {
             return 0;
         }
-        if (a.length == 1) {
-            return 1;
+        for (int i = 0; i < a.length - 1; i++) {
+            if (!(a[i] <= a[i + 1])) {
+                throw new IllegalStateException("Tabellen er ikke sortert i stigende rekkefølge");
+            }
         }
-        //Checking if the list is in ascending array
-        if (a[0] > a[1]) {
-            throw new IllegalStateException("Tabellen er ikke sortert i stigende rekkefølge");
-        }
-
         int antall = 1;
         int temp = a[0];
-
+        //Checking if the list is in ascending array
         for (int i = 1; i < a.length; i++) {
             //Since the list is in acending order
             //we only need to check if the number before and
@@ -99,7 +96,7 @@ public class Oblig1 {
         if (a.length < 1) {
             return;
         }
-
+/*
         int v = 0;
         int h = a.length - 1;
         int i = 0;
@@ -120,8 +117,8 @@ public class Oblig1 {
                 }
 
             }
-
         }
+        */
 
     }
 
