@@ -11,20 +11,19 @@ public class Oblig1 {
     public static int maks(int[] a) {
 
         //Throw an exception if the length of the array is less then one
-        if (a.length == 0) {
-            throw new NoSuchElementException("Arrayet er tomt");
+        if (a.length < 1) {
+            throw new NoSuchElementException("Tabellen er tomt");
         }
 
         int max_value = a[0];
-        int m = 0;
 
         //Index of the temporary highest value
         for (int i = 1; i < a.length; i++) {
-            if (max_value < a[i]) {
-                int temp = a[i];
+            if (max_value > a[i]) {
+                a[i - 1] = a[i];
                 a[i] = max_value;
-                max_value = temp;
             }
+            max_value = a[i];
         }
         return a[a.length - 1];
     }
